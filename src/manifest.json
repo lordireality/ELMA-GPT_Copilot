@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "ELMA-GPT Copilot",
+  "version": "1.0.1",
+  "description": "Добавляет GPT-помощника в редактор ELMA. Автор: @fr3nd3r",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["https://api.openai.com/"],
+  "action": {
+    "default_title": "ELMA-GPT Copilot"
+  },
+  "icons": {
+    "16": "vendor-icons/elma-16.png",
+    "32": "vendor-icons/elma-32.png",
+    "48": "vendor-icons/elma-48.png",
+    "128": "vendor-icons/elma-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/WebDesigner/*"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "options_page": "options.html"
+}

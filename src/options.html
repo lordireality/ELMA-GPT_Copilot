@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<title>Настройки ELMA-GPT Copilot</title>
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header img {
+      width: 32px;
+      height: 32px;
+      margin-right: 10px;
+    }
+
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+      color: #333;
+    }
+
+    .content {
+      padding: 15px 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 75%;
+      padding: 8px;
+      margin: 5px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="password"] {
+      width: 75%;
+      padding: 8px;
+      margin: 5px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    select {
+      width: 75%;
+      padding: 8px;
+      margin: 5px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+button {
+  margin-top: 16px;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #3EA853;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+button img.icon {
+  width: 2em;
+  height: 2em;
+  filter: invert(100%) sepia(61%) saturate(0%) hue-rotate(279deg) brightness(112%) contrast(101%);
+  vertical-align: middle;
+  display: inline-block;
+}
+
+    #status {
+      margin-top: 10px;
+      font-style: italic;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="icons/elma.svg" alt="logo" />
+    <h1>ELMA-GPT Copilot</h1>
+  </header>
+<div class="content">
+<label for="apiKey">Ваш API-ключ OpenAI:</label>
+<br/>
+<input type="password" id="apiKey" placeholder="sk-..." />
+<br/>
+<label for="modelSelect">Выберите модель:</label>
+<br/>
+<select id="modelSelect">
+  <option disabled="True">Модели загружаются...</option>
+</select>
+<br/>
+<button id="saveBtn"><img alt="Сохранить" class="icon" src="icons/floppy-disk-solid.svg"/>Сохранить</button>
+<div id="status"></div>
+<hr>
+</div>
+
+<script src="options.js"></script>
+
+
+<style>
+  .footer-icons {
+    text-align: center;
+    margin-top: 40px;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    font-size: 14px;
+  }
+  .footer-icons a {
+    display: inline-block;
+    text-decoration: none;
+    color: #1a0dab;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .footer-icons a:hover {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  .footer-icons a .icon {
+    font-size: 30px;
+    display: block;
+  }
+  .footer-icons img.icon {
+    width: 128px;
+    height: 128px;
+    margin-bottom: 5px;
+    opacity: 0.85;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  </style>
+  
+  <div class="footer-icons">
+    <a href="https://github.com/lordireality/ELMA-GPT_Copilot" target="_blank" title="GitHub">
+      <img alt="GitHub" class="icon" src="icons/square-github-brands.svg" style="filter: invert(13%) sepia(15%) saturate(577%) hue-rotate(169deg) brightness(91%) contrast(90%);"/>
+      <span>GitHub</span>
+    </a>
+    <a href="https://t.me/fr3nd3r" target="_blank" title="Telegram">
+      <img alt="telegram" class="icon" src="icons/telegram-brands.svg" style="filter: invert(48%) sepia(82%) saturate(5032%) hue-rotate(177deg) brightness(94%) contrast(101%);"/>
+      <span>Telegram</span>
+    </a>
+    <a href="https://www.elma-bpm.ru" target="_blank" title="ELMA">
+      <img alt="elma" class="icon" src="icons/elma.svg"/>
+      <span>ELMA</span>
+    </a>
+    <a href="https://github.com/javascript-obfuscator/javascript-obfuscator" target="_blank" title="javascript-obfuscator">
+      <img alt="javascript-obfuscator" class="icon" src="icons/lock-solid.svg" style="filter: invert(52%) sepia(99%) saturate(361%) hue-rotate(81deg) brightness(94%) contrast(92%);"/>
+      <span>javascript-obfuscator</span>
+    </a>
+  </div>
+  
+</body>
+</html>
