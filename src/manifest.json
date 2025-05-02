@@ -1,10 +1,10 @@
 {
   "manifest_version": 3,
   "name": "ELMA-GPT Copilot",
-  "version": "1.0.1",
+  "version": "1.2.1",
   "description": "Добавляет GPT-помощника в редактор ELMA. Автор: @fr3nd3r",
   "permissions": ["scripting", "activeTab", "storage"],
-  "host_permissions": ["https://api.openai.com/"],
+  "host_permissions": ["<all_urls>"],
   "action": {
     "default_title": "ELMA-GPT Copilot"
   },

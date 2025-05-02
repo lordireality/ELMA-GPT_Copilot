@@ -4,93 +4,8 @@
 <meta charset="utf-8"/>
 <title>Настройки ELMA-GPT Copilot</title>
 <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      padding: 12px 20px;
-      background: #fff;
-      border-bottom: 1px solid #ddd;
-    }
-
-    header img {
-      width: 32px;
-      height: 32px;
-      margin-right: 10px;
-    }
-
-    header h1 {
-      font-size: 24px;
-      margin: 0;
-      color: #333;
-    }
-
-    .content {
-      padding: 15px 20px;
-    }
-
-    label {
-      font-weight: bold;
-      margin-bottom: 8px;
-      color: #333;
-    }
-
-    input[type="text"] {
-      width: 75%;
-      padding: 8px;
-      margin: 5px 0 15px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    input[type="password"] {
-      width: 75%;
-      padding: 8px;
-      margin: 5px 0 15px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-    select {
-      width: 75%;
-      padding: 8px;
-      margin: 5px 0 15px 0;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-
-button {
-  margin-top: 16px;
-  padding: 10px;
-  font-size: 14px;
-  cursor: pointer;
-  background-color: #3EA853;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-button img.icon {
-  width: 2em;
-  height: 2em;
-  filter: invert(100%) sepia(61%) saturate(0%) hue-rotate(279deg) brightness(112%) contrast(101%);
-  vertical-align: middle;
-  display: inline-block;
-}
-
-    #status {
-      margin-top: 10px;
-      font-style: italic;
-      color: green;
-    }
-  </style>
+    body {      margin: 0;      font-family: Arial, sans-serif;      background-color: #f7f7f7;    }    header {      display: flex;      align-items: center;      padding: 12px 20px;      background: #fff;      border-bottom: 1px solid #ddd;    }    header img {      width: 32px;      height: 32px;      margin-right: 10px;    }    header h1 {      font-size: 24px;      margin: 0;      color: #333;    }    .content {      padding: 15px 20px;    }    label {      font-weight: bold;      margin-bottom: 8px;      color: #333;    }    input[type="text"] {      width: 75%;      padding: 8px;      margin: 5px 0 15px 0;      border: 1px solid #ccc;      border-radius: 4px;    }    input[type="password"] {      width: 75%;      padding: 8px;      margin: 5px 0 15px 0;      border: 1px solid #ccc;      border-radius: 4px;    }    textarea{      width: 75%;      padding: 8px;      margin: 5px 0 15px 0;      border: 1px solid #ccc;      border-radius: 4px;      resize: vertical;    }    select {      width: 75%;      padding: 8px;      margin: 5px 0 15px 0;      border: 1px solid #ccc;      border-radius: 4px;    }button {  margin-top: 16px;  padding: 10px;  font-size: 14px;  cursor: pointer;  border: none;  border-radius: 4px;  display: inline-flex;  align-items: center;  gap: 6px;}button.save{  background-color: #3EA853;  color: white;}button.infopanel{  background-color: #3e60a8;  color: white;  margin-top: 0px;  margin-bottom: 8px;  vertical-align: middle;}.infoContainer{  background-color: #f1f1f1;  color: #222;  border-bottom-left-radius: 2px;  white-space: pre-wrap;  word-break: break-word;  font-size: 14px;  padding: 8px;  border-radius: 14px;  width: 75%;}.infoContainerCode{  background: #2d2d2d;  color: #e0e0e0;  padding: 10px;  overflow-x: auto;  border-radius: 6px;  font-family: monospace;  font-size: 13px;}button:hover{  background-image: linear-gradient(rgb(0 0 0/40%) 0 0);}button img.icon {  width: 2em;  height: 2em;  filter: invert(100%) sepia(61%) saturate(0%) hue-rotate(279deg) brightness(112%) contrast(101%);  vertical-align: middle;  display: inline-block;}#status {  margin-top: 10px;  font-style: italic;  color: green;}.footer-icons {  text-align: center;  margin-top: 40px;  opacity: 0.9;  display: flex;  justify-content: center;  flex-wrap: wrap;  gap: 30px;  font-size: 14px;}.footer-icons a {  display: inline-block;  text-decoration: none;  color: #1a0dab;  transition: transform 0.2s ease, opacity 0.2s ease;}.footer-icons a:hover {  transform: scale(1.2);  opacity: 1;}.footer-icons a .icon {  font-size: 30px;  display: block;}.footer-icons img.icon {  width: 128px;  height: 128px;  margin-bottom: 5px;  opacity: 0.85;  margin-left: auto;  margin-right: auto;}td{  vertical-align:top;}
+</style>
 </head>
 <body>
   <header>
@@ -98,58 +13,201 @@ button img.icon {
     <h1>ELMA-GPT Copilot</h1>
   </header>
 <div class="content">
+<label for="apiEndpoint">Адрес API-сервера (обязательно укажите в конце / ):</label>
+<br/>
+<input type="text" style="width: 60%;" id="apiEndpoint" placeholder="https://api.openai.com/v1/">
+<button class="infopanel" style="width: 15%;" id="apiEndpointInfoButton"><img alt="Информация" class="icon" src="icons/circle-info-solid.svg"/>Информация по end-point'у</button>
+<div id="apiEndpointInfo" class="infoContainer" hidden>
+  Для корректной работы, конечная точка API должна быть идентичной OpenAI и реализовывать следующие методы:
+  
+  <table style="width: 100%;">
+    <tr>
+      <td style="width: 50%;">Вызов: <b>%end-point%models</b>
+      <div class="infoContainerCode">
+      const res = await fetch(endpoint+"models", {
+        headers: {
+          "Authorization": "Bearer " + apiKey
+        }
+      });
+      </div>
+      </td>
+      <td style="width: 50%;">Ответ:
+      <div class="infoContainerCode">
+      {
+        "object": "list",
+        "data": [
+          {
+            "id": "model-id-0",
+            "object": "model",
+            "created": 1686935002,
+            "owned_by": "organization-owner"
+          },
+          {
+            "id": "model-id-1",
+            "object": "model",
+            "created": 1686935002,
+            "owned_by": "organization-owner",
+          },
+          {
+            "id": "model-id-2",
+            "object": "model",
+            "created": 1686935002,
+            "owned_by": "openai"
+          },
+        ],
+        "object": "list"
+      }
+    </div>
+
+      </td>
+    </tr>
+  </table>
+  <table style="width: 100%;">
+    <tr>
+      <td style="width: 50%;">Вызов: <b>%end-point%chat/completions</b>
+      <div class="infoContainerCode">
+      const res = await fetch(apiEndpoint+"chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + apiKey,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: langModel,
+          messages: [
+            { role: "system", content: apiSysPromt },
+            { role: "user", content: prompt }
+          ]
+        })
+      });
+      </div>
+      </td>
+      <td style="width: 50%;">Ответ:
+      <div class="infoContainerCode">
+        {
+          "id": "chatcmpl-B9MBs8CjcvOU2jLn4n570S5qMJKcT",
+          "object": "chat.completion",
+          "created": 1741569952,
+          "model": "gpt-4.1-2025-04-14",
+          "choices": [
+            {
+              "index": 0,
+              "message": {
+                "role": "assistant",
+                "content": "Hello! How can I assist you today?",
+                "refusal": null,
+                "annotations": []
+              },
+              "logprobs": null,
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 19,
+            "completion_tokens": 10,
+            "total_tokens": 29,
+            "prompt_tokens_details": {
+              "cached_tokens": 0,
+              "audio_tokens": 0
+            },
+            "completion_tokens_details": {
+              "reasoning_tokens": 0,
+              "audio_tokens": 0,
+              "accepted_prediction_tokens": 0,
+              "rejected_prediction_tokens": 0
+            }
+          },
+          "service_tier": "default"
+        }
+      </div>
+      </td>
+    </tr>
+  </table>
+
+</div>
+<br/>
 <label for="apiKey">Ваш API-ключ OpenAI:</label>
 <br/>
 <input type="password" id="apiKey" placeholder="sk-..." />
 <br/>
 <label for="modelSelect">Выберите модель:</label>
+<label id="modelSelectText"></label>
 <br/>
 <select id="modelSelect">
   <option disabled="True">Модели загружаются...</option>
 </select>
 <br/>
-<button id="saveBtn"><img alt="Сохранить" class="icon" src="icons/floppy-disk-solid.svg"/>Сохранить</button>
+<label for="systemPrompt">Системный промт:</label>
+<br/>
+<textarea id="systemPrompt" rows="3" placeholder="Ты специалист LowCode разработки ELMA4. Пользуйся справкой https://www.elma-bpm.ru/KB/index"></textarea>
+<br/>
+<label for="monacoTheme">Тема редактора Monaco:</label>
+<br/>
+<select id="monacoTheme">
+  <option value="vs">Светлая (vs)</option>
+  <option value="vs-dark">Тёмная (vs-dark)</option>
+  <option value="hc-black">Высококонтрастная (hc-black)</option>
+  <option value="active4d">Active4D</option>
+  <option value="all-hallows-eve">All Hallows Eve</option>
+  <option value="amy">Amy</option>
+  <option value="birds-of-paradise">Birds of Paradise</option>
+  <option value="blackboard">Blackboard</option>
+  <option value="brilliance-black">Brilliance Black</option>
+  <option value="brilliance-dull">Brilliance Dull</option>
+  <option value="chrome-devtools">Chrome DevTools</option>
+  <option value="clouds-midnight">Clouds Midnight</option>
+  <option value="clouds">Clouds</option>
+  <option value="cobalt">Cobalt</option>
+  <option value="cobalt2">Cobalt2</option>
+  <option value="dawn">Dawn</option>
+  <option value="dracula">Dracula</option>
+  <option value="dreamweaver">Dreamweaver</option>
+  <option value="eiffel">Eiffel</option>
+  <option value="espresso-libre">Espresso Libre</option>
+  <option value="github-dark">GitHub Dark</option>
+  <option value="github-light">GitHub Light</option>
+  <option value="github">GitHub</option>
+  <option value="idle">IDLE</option>
+  <option value="katzenmilch">Katzenmilch</option>
+  <option value="kuroir-theme">Kuroir Theme</option>
+  <option value="lazy">LAZY</option>
+  <option value="magicwb--amiga-">MagicWB (Amiga)</option>
+  <option value="merbivore-soft">Merbivore Soft</option>
+  <option value="merbivore">Merbivore</option>
+  <option value="monokai-bright">Monokai Bright</option>
+  <option value="monokai">Monokai</option>
+  <option value="night-owl">Night Owl</option>
+  <option value="nord">Nord</option>
+  <option value="oceanic-next">Oceanic Next</option>
+  <option value="pastels-on-dark">Pastels on Dark</option>
+  <option value="slush-and-poppies">Slush and Poppies</option>
+  <option value="solarized-dark">Solarized-dark</option>
+  <option value="solarized-light">Solarized-light</option>
+  <option value="spacecadet">SpaceCadet</option>
+  <option value="sunburst">Sunburst</option>
+  <option value="textmate--mac-classic-">Textmate (Mac Classic)</option>
+  <option value="tomorrow-night-blue">Tomorrow-Night-Blue</option>
+  <option value="tomorrow-night-bright">Tomorrow-Night-Bright</option>
+  <option value="tomorrow-night-eighties">Tomorrow-Night-Eighties</option>
+  <option value="tomorrow-night">Tomorrow-Night</option>
+  <option value="tomorrow">Tomorrow</option>
+  <option value="twilight">Twilight</option>
+  <option value="upstream-sunburst">Upstream Sunburst</option>
+  <option value="vibrant-ink">Vibrant Ink</option>
+  <option value="xcode-default">Xcode_default</option>
+  <option value="zenburnesque">Zenburnesque</option>
+  <option value="iplastic">iPlastic</option>
+  <option value="idlefingers">idleFingers</option>
+  <option value="krtheme">krTheme</option>
+  <option value="monoindustrial">monoindustrial</option>
+</select>
+<br/>
+<button class="save" id="saveBtn"><img alt="Сохранить" class="icon" src="icons/floppy-disk-solid.svg"/>Сохранить</button>
 <div id="status"></div>
 <hr>
 </div>
 
 <script src="options.js"></script>
-
-
-<style>
-  .footer-icons {
-    text-align: center;
-    margin-top: 40px;
-    opacity: 0.9;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px;
-    font-size: 14px;
-  }
-  .footer-icons a {
-    display: inline-block;
-    text-decoration: none;
-    color: #1a0dab;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-  }
-  .footer-icons a:hover {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  .footer-icons a .icon {
-    font-size: 30px;
-    display: block;
-  }
-  .footer-icons img.icon {
-    width: 128px;
-    height: 128px;
-    margin-bottom: 5px;
-    opacity: 0.85;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  </style>
   
   <div class="footer-icons">
     <a href="https://github.com/lordireality/ELMA-GPT_Copilot" target="_blank" title="GitHub">
@@ -167,6 +225,10 @@ button img.icon {
     <a href="https://github.com/javascript-obfuscator/javascript-obfuscator" target="_blank" title="javascript-obfuscator">
       <img alt="javascript-obfuscator" class="icon" src="icons/lock-solid.svg" style="filter: invert(52%) sepia(99%) saturate(361%) hue-rotate(81deg) brightness(94%) contrast(92%);"/>
       <span>javascript-obfuscator</span>
+    </a>
+    <a href="https://github.com/brijeshb42/monaco-themes" target="_blank" title="monaco-themes">
+      <img alt="monaco-themes" class="icon" src="icons/paintbrush-solid.svg" style="filter: invert(13%) sepia(15%) saturate(577%) hue-rotate(169deg) brightness(91%) contrast(90%);"/>
+      <span>monaco-themes</span>
     </a>
   </div>
   
